@@ -1,10 +1,9 @@
-const fs = require('node:fs');
-const path = require('node:path');
+const fs = require('fs');
+const path = require('path');
 const { Client, Collection, EmbedBuilder, Events, GatewayIntentBits } = require('discord.js');
 // const { token } = require('./config.json');
 const token = process.env.token;
-const { error } = require('node:console');
-const { setInterval } = require('node:timers');
+
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
@@ -67,18 +66,18 @@ client.on(Events.ClientReady, () => {
 			channel.messages.fetch().then((messages) => {
 				const pmsgs = messages.filter(message => message.pinned);
 				const ids = pmsgs.map(message => message.id);
-				channel.messages.fetch(ids[ids.length-1]).then(message => message.unpin("New Embed")).then(() => channel.send("Unpinned")).catch(console.error);
+				channel.messages.fetch(ids[ids.length-1]).then(message => message.unpin("New Embed")).then(() => channel.send("Unpinned")).catch(console.log("Error unpinning or fetching messages"));
 			})
 			console.log("Sending Embed");
-			channel.send({ embeds: [winterEmbed] }).then(message => message.pin()).catch(console.error);
+			channel.send({ embeds: [winterEmbed] }).then(message => message.pin()).catch(console.log("Error pinning or sending embed"));
 		} else if (now.getUTCMonth() === 10 && now.getUTCDate()>0 && now.getUTCDate()<8 && now.getUTCDay()===0){
 			channel.messages.fetch().then((messages) => {
 				const pmsgs = messages.filter(message => message.pinned);
 				const ids = pmsgs.map(message => message.id);
-				channel.messages.fetch(ids[ids.length-1]).then(message => message.unpin("New Embed")).then(() => channel.send("Unpinned")).catch(console.error);
+				channel.messages.fetch(ids[ids.length-1]).then(message => message.unpin("New Embed")).then(() => channel.send("Unpinned")).catch(console.log("Error unpinning or fetching messages"));
 			})
 			console.log("Sending Embed");
-			channel.send({ embeds: [summerEmbed] }).then(message => message.pin()).catch(console.error);
+			channel.send({ embeds: [summerEmbed] }).then(message => message.pin()).catch(console.log("Error pinning or sending embed"));
 		}
 	}, interval);
 })
