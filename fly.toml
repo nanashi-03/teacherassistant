@@ -1,4 +1,4 @@
-# fly.toml app configuration file generated for fuckdst on 2023-05-10T23:31:40+05:30
+# fly.toml app configuration file generated for fuckdst on 2023-05-11T00:25:36+05:30
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
@@ -8,9 +8,9 @@ primary_region = "den"
 
 [env]
   PORT = "8080"
-  clientId = "1103383784985993307"
-  token = "MTEwMzM4Mzc4NDk4NTk5MzMwNw.GQKLN4.vxR_Q-G3cJolPinDI69t0GZylsOpav7lgxzmz0"
   channelId = "1000339961314283621"
+  clientId = "1103383784985993307"
+  token = "MTEwMzM4Mzc4NDk4NTk5MzMwNw.GnUXu0.UQ6aKmYT01FuAU81YrzCWUnj8RzcUrZBEHIjSE"
 
 [http_service]
   internal_port = 8080

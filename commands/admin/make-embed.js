@@ -1,5 +1,5 @@
 const {SlashCommandBuilder, EmbedBuilder ,PermissionFlagsBits} = require('discord.js');
-require('dotenv').confun
+// require('dotenv').config()
 
 function isDST(d) {
     let jan = new Date(d.getFullYear(), 0, 1).getTimezoneOffset();
