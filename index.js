@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const { Client, Collection, EmbedBuilder, Events, GatewayIntentBits } = require('discord.js');
+require('dotenv').config()
 // const { token } = require('./config.json');
 const token = process.env.token;
 
@@ -50,12 +51,12 @@ client.on(Events.ClientReady, () => {
 	const winterEmbed = new EmbedBuilder()
 		.setColor(0xA020F0)
 		.setTitle('Class Time')
-		.setDescription('\nSaturdays <t:1677423600:t>\n\nTaught by <@299039673865601024>\n\n*The times are in your time zone. You don\'t have to convert.*')
+		.setDescription('\nSundays <t:1677423600:t>\n\nTaught by <@299039673865601024>\n\n*The times are in your time zone. You don\'t have to convert.*')
 
 	const summerEmbed = new EmbedBuilder()
 		.setColor(0xA020F0)
 		.setTitle('Class Time')
-		.setDescription('\nSaturdays <t:1684076400:t>\n\nTaught by <@299039673865601024>\n\n*The times are in your time zone. You don\'t have to convert.*')
+		.setDescription('\nSundays <t:1684076400:t>\n\nTaught by <@299039673865601024>\n\n*The times are in your time zone. You don\'t have to convert.*')
 	
 	const interval = 86400000;
 

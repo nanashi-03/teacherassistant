@@ -9,7 +9,7 @@ primary_region = "den"
 [env]
   PORT = "8080"
   clientId = "1103383784985993307"
-  token = "MTEwMzM4Mzc4NDk4NTk5MzMwNw.GOBlAi.uxrVI1mtP86IedoX3KVDOv0ku-Y-dex0p6mhYU"
+  token = "MTEwMzM4Mzc4NDk4NTk5MzMwNw.GQKLN4.vxR_Q-G3cJolPinDI69t0GZylsOpav7lgxzmz0"
   channelId = "1000339961314283621"
 
 [http_service]
