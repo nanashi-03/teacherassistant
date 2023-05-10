@@ -4,8 +4,6 @@ const { Client, Collection, EmbedBuilder, Events, GatewayIntentBits } = require(
 // require('dotenv').config()
 // const { token } = require('./config.json');
 const token = process.env.token;
-console.log(token);
-console.log(typeof(token));
 
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
@@ -60,9 +58,10 @@ client.on(Events.ClientReady, () => {
 		.setTitle('Class Time')
 		.setDescription('\nSundays <t:1684076400:t>\n\nTaught by <@299039673865601024>\n\n*The times are in your time zone. You don\'t have to convert.*')
 	
-	const interval = 86400000;
+	const interval = 300000;
 
 	setInterval(() => {
+		console.log("Ping to load...")
 		const now = new Date();
 
 		if(now.getUTCMonth() === 2 && now.getUTCDate()>7 && now.getUTCDate()<15 && now.getUTCDay()===0) {
