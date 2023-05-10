@@ -1,7 +1,6 @@
 const { REST, Routes } = require('discord.js');
 // const { clientId, guildId, token } = require('./config.json');
 const clientId = process.env.clientId;
-const guildId = process.env.guildId;
 const token = process.env.token;
 const fs = require('fs');
 const path = require('path');
@@ -31,7 +30,8 @@ const rest = new REST().setToken(token);
 		console.log(`Started refreshing ${commands.length} application (/) commands.`);
 
 		const data = await rest.put(
-			Routes.applicationGuildCommands(clientId, guildId),
+			Routes.
+			Routes.applicationCommands(clientId),
 			{ body: commands },
 		);
 

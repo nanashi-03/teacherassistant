@@ -11,17 +11,17 @@ module.exports = {
 	category: "admin",
 	async execute(interaction){
 		const now = new Date();
-		const channel = interaction.client.channels.cache.get('1103519881309200456');
+		const channel = interaction.client.channels.cache.get(process.env.channelId);
 
 		const winterEmbed = new EmbedBuilder()
 			.setColor(0xA020F0)
 			.setTitle('Class Time')
-			.setDescription('\nSaturdays <t:1677337200:t>\n\nTaught by <@299039673865601024>\n\n*The times are in your time zone. You don\'t have to convert.*')
+			.setDescription('\nSaturdays <t:1677423600:t>\n\nTaught by <@299039673865601024>\n\n*The times are in your time zone. You don\'t have to convert.*')
 
 		const summerEmbed = new EmbedBuilder()
 			.setColor(0xA020F0)
 			.setTitle('Class Time')
-			.setDescription('\nSaturdays <t:1683990000:t>\n\nTaught by <@299039673865601024>\n\n*The times are in your time zone. You don\'t have to convert.*')
+			.setDescription('\nSaturdays <t:1684076400:t>\n\nTaught by <@299039673865601024>\n\n*The times are in your time zone. You don\'t have to convert.*')
 		
 		// interaction.reply({content: isDST(now).toString(), ephemeral: true});
 		
