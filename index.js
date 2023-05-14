@@ -46,7 +46,7 @@ for (file of eventFiles) {
 client.on(Events.ClientReady, () => {
 	const channel = client.channels.cache.get(process.env.channelId);
 
-	const startDate = new Date();
+	const now = new Date();
 
 	const winterEmbed = new EmbedBuilder()
 		.setColor(0xA020F0)
@@ -57,31 +57,25 @@ client.on(Events.ClientReady, () => {
 		.setColor(0xA020F0)
 		.setTitle('Class Time')
 		.setDescription('\nSundays <t:1684076400:t>\n\nTaught by <@299039673865601024>\n\n*The times are in your time zone. You don\'t have to convert.*')
-	
-	const interval = 300000;
 
-	setInterval(() => {
-		console.log("Ping to load...")
-		const now = new Date();
 
-		if(now.getUTCMonth() === 2 && now.getUTCDate()>7 && now.getUTCDate()<15 && now.getUTCDay()===0) {
-			channel.messages.fetch().then((messages) => {
-				const pmsgs = messages.filter(message => message.pinned);
-				const ids = pmsgs.map(message => message.id);
-				channel.messages.fetch(ids[ids.length-1]).then(message => message.unpin("New Embed")).then(() => channel.send("Unpinned")).catch(console.log("Error unpinning or fetching messages"));
-			})
-			console.log("Sending Embed");
-			channel.send({ embeds: [winterEmbed] }).then(message => message.pin()).catch(console.log("Error pinning or sending embed"));
-		} else if (now.getUTCMonth() === 10 && now.getUTCDate()>0 && now.getUTCDate()<8 && now.getUTCDay()===0){
-			channel.messages.fetch().then((messages) => {
-				const pmsgs = messages.filter(message => message.pinned);
-				const ids = pmsgs.map(message => message.id);
-				channel.messages.fetch(ids[ids.length-1]).then(message => message.unpin("New Embed")).then(() => channel.send("Unpinned")).catch(console.log("Error unpinning or fetching messages"));
-			})
-			console.log("Sending Embed");
-			channel.send({ embeds: [summerEmbed] }).then(message => message.pin()).catch(console.log("Error pinning or sending embed"));
-		}
-	}, interval);
+	if(now.getUTCMonth() === 2 && now.getUTCDate()>7 && now.getUTCDate()<15 && now.getUTCDay()===0) {
+		channel.messages.fetch().then((messages) => {
+			const pmsgs = messages.filter(message => message.pinned);
+			const ids = pmsgs.map(message => message.id);
+			channel.messages.fetch(ids[ids.length-1]).then(message => message.unpin("New Embed")).then(() => channel.send("Unpinned")).catch(console.log("Error unpinning or fetching messages"));
+		})
+		console.log("Sending Embed");
+		channel.send({ embeds: [winterEmbed] }).then(message => message.pin()).catch(console.log("Error pinning or sending embed"));
+	} else if (now.getUTCMonth() === 10 && now.getUTCDate()>0 && now.getUTCDate()<8 && now.getUTCDay()===0){
+		channel.messages.fetch().then((messages) => {
+			const pmsgs = messages.filter(message => message.pinned);
+			const ids = pmsgs.map(message => message.id);
+			channel.messages.fetch(ids[ids.length-1]).then(message => message.unpin("New Embed")).then(() => channel.send("Unpinned")).catch(console.log("Error unpinning or fetching messages"));
+		})
+		console.log("Sending Embed");
+		channel.send({ embeds: [summerEmbed] }).then(message => message.pin()).catch(console.log("Error pinning or sending embed"));
+	}
 })
 
 client.login(token);
